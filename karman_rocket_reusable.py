@@ -25,7 +25,6 @@ def calculate_air_density(alt, temp_c, humidity_pct):
     else:
         tv = T_k
 
-    # Ideal gas law for moist air density
     density = (pressure - (0.378 * e)) / (R_d * tv)
     return max(density, 0.0)
 
@@ -67,7 +66,7 @@ class PIDController:
         self.previous_error = error
         return output
 
-def run_rock5_simulation():
+def run_karman_rocket_reusable_simulation():
     print("=" * 65)
     print(" ROCKY-ROCKETS: FULL-FLIGHT TVC & LANDING SIMULATOR ")
     print("=" * 65)
@@ -133,7 +132,6 @@ def run_rock5_simulation():
         rho = calculate_air_density(y, temp_c, humidity_pct)
         wind_vx = get_wind_velocity(y, base_wind, wind_dir)
 
-        # State machine managing mission profile
         if phase == "ASCENT":
             if current_fuel > 0 and t <= burn_time:
                 current_mass = dry_mass + current_fuel + current_landing_fuel + payload_mass
@@ -152,7 +150,6 @@ def run_rock5_simulation():
         elif phase == "DESCENT":
             current_mass = dry_mass + current_landing_fuel + payload_mass
             current_thrust = 0.0
-            # Fire landing retro-burn if dropping fast close to the ground
             if y < 1500.0 and vy < -15.0 and current_landing_fuel > 0:
                 phase = "LANDING_BURN"
         elif phase == "LANDING_BURN":
@@ -191,7 +188,6 @@ def run_rock5_simulation():
         if math.degrees(abs(theta)) > max_tilt_deg:
             max_tilt_deg = math.degrees(abs(theta))
 
-        # 2D Force 
         total_angle = theta + gimbal_angle
         thrust_x = current_thrust * math.sin(total_angle)
         thrust_y = current_thrust * math.cos(total_angle)
@@ -239,8 +235,8 @@ def run_rock5_simulation():
     if abs(vy) < 5.0 and max_tilt_deg < 30.0:
         print("RESULT: Success! Active TVC kept it stable through wind shear and achieved a soft landing.")
     else:
-        print("RESULT: HARD LANDING OR LOSS OF CONTROL. Re-tune PID gains.")
+        print("RESULT: HARD LANDING OR LOSS OF CONTROL. Re-tune PID gng.")
     print("=" * 65)
 
 if __name__ == "__main__":
-    run_rock5_simulation()
+    run_karman_rocket_reusable_simulation()
