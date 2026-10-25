@@ -13,7 +13,7 @@ Ok so this project is my best attempt to create a accurate sim of the conditions
 
 ##demo
 here is an image of how it would look(boring i know)
-![Rocky Rockets Simulation](demo.jpg)
+!(demo.jpg)
 
 ## how to run
 
