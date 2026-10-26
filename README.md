@@ -11,7 +11,7 @@ Ok so this project is my best attempt to create a accurate sim of the conditions
 * **`rock4.py`** - introduces rotational dynamics, a PID controller(based on my real rocket), and active thrust vector control (TVC) to keep the rocket stable against crosswinds.
 * **`karman_reusable_rocket.py`** - the final version. It basically includes everything i built so far with some more finishing touches
 
-##demo
+## demo
 here is an image of how it would look(boring i know)
 ![Demo Preview](demo.JPG)
 
