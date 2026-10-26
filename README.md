@@ -25,3 +25,6 @@ python karman_reusable_rocket.py
 ## Dependencies
 ```bash
  pip install pyinstaller
+```
+## How to play
+It is a sim guys so you just have to enter the values thet reflect your real rocket or take a guess at it.
