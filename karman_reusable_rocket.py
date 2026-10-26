@@ -66,7 +66,7 @@ class PIDController:
         self.previous_error = error
         return output
 
-def run_karman_rocket_reusable_simulation():
+def run_karman_reusable_rocket_simulation():
     print("=" * 65)
     print(" ROCKY-ROCKETS: FULL-FLIGHT TVC & LANDING SIMULATOR ")
     print("=" * 65)
@@ -239,4 +239,4 @@ def run_karman_rocket_reusable_simulation():
     print("=" * 65)
 
 if __name__ == "__main__":
-    run_karman_rocket_reusable_simulation()
+    run_karman_reusable_rocket_simulation()
