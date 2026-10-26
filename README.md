@@ -23,3 +23,5 @@ make sure you have python installed, open your terminal in the project folder, a
 python karman_reusable_rocket.py 
 ```
 ## Dependencies
+```bash
+ pip install pyinstaller
